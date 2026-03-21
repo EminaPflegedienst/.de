@@ -29,6 +29,36 @@
     <span class="appointment-text">Termin anfragen</span>
 
 </a>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const images = document.querySelectorAll("img");
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        const src = img.getAttribute("data-src");
+
+        if (src) {
+          img.setAttribute("src", src);
+          img.removeAttribute("data-src");
+        }
+
+        observer.unobserve(img);
+      }
+    });
+  });
+
+  images.forEach(img => {
+    const realSrc = img.getAttribute("src");
+    img.setAttribute("data-src", realSrc);
+    img.removeAttribute("src");
+    observer.observe(img);
+  });
+
+});
+</script>
 
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
