@@ -1763,3 +1763,13 @@ section {
         margin-top: 30px;
     }
 }
+.highlight-text {
+    color: #40e0d0; /* TURQUOISE */
+}
+.highlight-text {
+    color: #40e0d0;
+    font-weight: 700;
+}
+.footer-sitemap h2.highlight-text {
+    color: #40e0d0 !important;
+}
