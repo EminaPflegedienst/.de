@@ -1773,3 +1773,21 @@ section {
 .footer-sitemap h2.highlight-text {
     color: #40e0d0 !important;
 }
+:root {
+    --main-red: #d81b60;
+}
+
+/* Replace all red usage */
+.footer-sitemap,
+.footer-sitemap h2,
+.footer-sitemap h4,
+.footer-sitemap p,
+.footer-sitemap a {
+    color: var(--main-red);
+}
+
+/* Links globally */
+a {
+    color: var(--main-red);
+}
+
