@@ -11,54 +11,33 @@
      <meta name="author" content="Emina Pflegedienst">
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-     <link rel="stylesheet" href="css/bootstrap.min.css">
-     <link rel="stylesheet" href="css/font-awesome.min.css">
-     <link rel="stylesheet" href="css/animate.css">
-     <link rel="stylesheet" href="css/owl.carousel.css">
-     <link rel="stylesheet" href="css/owl.theme.default.min.css">
-     <link rel="stylesheet" href="css/tooplate-style.css">
+         <link rel="preload" href="css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+         <link rel="preload" href="css/font-awesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+         <link rel="preload" href="css/animate.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+         <link rel="preload" href="css/owl.carousel.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+         <link rel="preload" href="css/owl.theme.default.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+         <link rel="preload" href="css/tooplate-style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
+         <noscript>
+         <link rel="stylesheet" href="css/bootstrap.min.css">
+         <link rel="stylesheet" href="css/font-awesome.min.css">
+         <link rel="stylesheet" href="css/animate.css">
+         <link rel="stylesheet" href="css/owl.carousel.css">
+         <link rel="stylesheet" href="css/owl.theme.default.min.css">
+         <link rel="stylesheet" href="css/tooplate-style.css">
+         </noscript>
 </head>
 <!-- FLOATING APPOINTMENT BUTTON -->
 <a href="#appointment" class="floating-appointment">
     
     <div class="heart-wrapper">
-        <img src="images/load.png" alt="Termin anfragen">
+        <img src="images/load.png" alt="Termin anfragen" loading="eager" decoding="async">
     </div>
 
     <span class="appointment-text">Termin anfragen</span>
 
 </a>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
 
-  const images = document.querySelectorAll("img");
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        const src = img.getAttribute("data-src");
-
-        if (src) {
-          img.setAttribute("src", src);
-          img.removeAttribute("data-src");
-        }
-
-        observer.unobserve(img);
-      }
-    });
-  });
-
-  images.forEach(img => {
-    const realSrc = img.getAttribute("src");
-    img.setAttribute("data-src", realSrc);
-    img.removeAttribute("src");
-    observer.observe(img);
-  });
-
-});
-</script>
 
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
@@ -108,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       <!-- LOGO IMAGE -->
       <a href="index.html" class="navbar-brand">
-        <img src="images/Logo-Horizontal-1.webp" alt="Logo" class="nav-logo">
+          <img src="images/Logo-Horizontal-1.webp" alt="Logo" class="nav-logo" loading="eager" decoding="async">
       </a>
     </div>
 
@@ -297,7 +276,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="heart-icon">
                     <img src="images/load.png" alt="heart">
                 </div>
-          <img src="images/s1.png" class="img-responsive" alt="">
+            <img src="images/s1.png" class="img-responsive" loading="lazy" decoding="async" alt="">
           <div class="news-info">
             <span>Leistung</span>
             <h3 class="service-title">Grundpflege</h3>
@@ -506,12 +485,12 @@ document.addEventListener("DOMContentLoaded", function () {
      <!-- GOOGLE MAP -->
      <section id="google-map">
          <iframe
-             src="https://www.google.com/maps?q=Osterholzallee+140/1,+71636+Ludwigsburg&output=embed"
-             width="100%"
-             height="350"
-             frameborder="0"
-             style="border:0"
-             allowfullscreen>
+           src="https://www.google.com/maps?q=Osterholzallee+140/1,+71636+Ludwigsburg&output=embed"
+           width="100%"
+           height="350"
+           style="border:0"
+           loading="lazy"
+           allowfullscreen>
          </iframe>
      </section>
 
@@ -724,11 +703,13 @@ document.addEventListener("DOMContentLoaded", function () {
        </div>
      </section>
      <!-- SCRIPTS -->
-     <script src="js/jquery.js"></script>
-     <script src="js/bootstrap.min.js"></script>
-     <script src="js/jquery.sticky.js"></script>
-     <script src="js/jquery.stellar.min.js"></script>
-     <script src="js/wow.min.js"></script>
+     <script src="js/jquery.js" defer></script>
+     <script src="js/bootstrap.min.js" defer></script>
+     <script src="js/jquery.sticky.js" defer></script>
+     <script src="js/jquery.stellar.min.js" defer></script>
+     <script src="js/wow.min.js" defer></script>
+     <script src="js/owl.carousel.min.js" defer></script>
+     <script src="js/custom.js" defer></script>
      <script>
      document.addEventListener("DOMContentLoaded", function () {
 
@@ -759,8 +740,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
      });
      </script>
-     <script src="js/owl.carousel.min.js"></script>
-     <script src="js/custom.js"></script>
+
 
 </body>
 </html>
