@@ -1688,39 +1688,46 @@ section {
 .team-highlight p {
   color: #ffffff;
 }
-/* 🔴 SITEMAP SECTION */
+/* ⚪ SITEMAP SECTION */
 .footer-sitemap {
-    background: #c1121f; /* RED */
-    color: #40e0d0; /* TURQUOISE */
+    background: #ffffff; /* WHITE */
+    color: #c1121f; /* RED */
     padding: 60px 20px;
 }
 
+/* MAIN TEXT */
 .footer-sitemap h2 {
     font-size: 22px;
     font-weight: 600;
     margin-bottom: 25px;
-    color: #ffffff;
+    color: #c1121f; /* RED */
 }
 
+/* HEADINGS */
 .footer-sitemap h4 {
-    color: #40e0d0;
+    color: #c1121f; /* RED */
     margin-bottom: 15px;
 }
 
+/* PARAGRAPH */
 .footer-sitemap p {
-    color: #ffffff;
+    color: #c1121f; /* RED */
 }
 
+/* LINKS */
 .footer-sitemap a {
-    color: #40e0d0;
+    color: #c1121f; /* RED */
     text-decoration: none;
     display: inline-block;
     margin-bottom: 8px;
     transition: 0.3s;
 }
 
-.footer-sitemap a:hover {
-    color: #ffffff;
+/* HOVER / CLICK EFFECT */
+.footer-sitemap a:hover,
+.footer-sitemap a:focus,
+.footer-sitemap a:active {
+    color: #40e0d0; /* TURQUOISE */
     transform: translateX(5px);
 }
 
@@ -1739,11 +1746,11 @@ section {
     margin-top: 20px;
 }
 
-/* LOGO */
+/* LOGO (KEEP ORIGINAL COLORS) */
 .footer-logo {
     max-width: 140px;
     margin-top: 20px;
-    filter: brightness(0) invert(1); /* makes logo white */
+    /* ❌ removed filter so colors stay original */
 }
 
 /* MOBILE */
