@@ -1688,3 +1688,71 @@ section {
 .team-highlight p {
   color: #ffffff;
 }
+/* 🔴 SITEMAP SECTION */
+.footer-sitemap {
+    background: #c1121f; /* RED */
+    color: #40e0d0; /* TURQUOISE */
+    padding: 60px 20px;
+}
+
+.footer-sitemap h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #ffffff;
+}
+
+.footer-sitemap h4 {
+    color: #40e0d0;
+    margin-bottom: 15px;
+}
+
+.footer-sitemap p {
+    color: #ffffff;
+}
+
+.footer-sitemap a {
+    color: #40e0d0;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 8px;
+    transition: 0.3s;
+}
+
+.footer-sitemap a:hover {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+/* LIST */
+.footer-sitemap ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-sitemap ul li {
+    margin-bottom: 8px;
+}
+
+/* CONTACT */
+.footer-contact p {
+    margin-top: 20px;
+}
+
+/* LOGO */
+.footer-logo {
+    max-width: 140px;
+    margin-top: 20px;
+    filter: brightness(0) invert(1); /* makes logo white */
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .footer-sitemap {
+        text-align: center;
+    }
+
+    .footer-logo {
+        margin-top: 30px;
+    }
+}
