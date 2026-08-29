@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Seite nicht gefunden – Emina Pflegedienst</title>
+    <link rel="icon" type="image/png" href="images/load.png">
+
+    <!--
+      GitHub Pages only serves 404.html for a path that doesn't exist as a real file
+      (e.g. /leistungen, /kontakt). Since this site is a single index.html with
+      in-page sections, we remember the path the visitor actually wanted, send them
+      to the homepage, and index.html's own script restores that URL and scrolls
+      to the right section. This keeps links like eminapflegedienst.de/leistungen
+      shareable and bookmarkable.
+    -->
+    <script>
+      (function () {
+        var wanted = location.pathname + location.search + location.hash;
+        try {
+          if (wanted && wanted !== "/") {
+            sessionStorage.setItem("spa-redirect-path", wanted);
+          }
+        } catch (e) {
+          // sessionStorage unavailable (sandboxed preview, blocked storage, etc.) — fall through to plain redirect
+        }
+        location.replace("/");
+      })();
+    </script>
+
+    <style>
+        :root { --brand: #2a7fff; }
+        * { box-sizing: border-box; }
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background: #f7f9fc;
+            color: #333;
+        }
+        .wrap {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        img.logo { max-width: 180px; margin-bottom: 24px; }
+        h1 { font-size: 84px; margin: 0; color: var(--brand); line-height: 1; }
+        h2 { margin: 10px 0 16px; font-size: 22px; font-weight: 600; }
+        p { max-width: 460px; line-height: 1.6; color: #555; }
+        .actions { margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+        .actions a {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s ease;
+        }
+        .actions a:hover { opacity: 0.85; }
+        .btn-primary { background: var(--brand); color: #fff; }
+        .btn-secondary { background: #fff; color: var(--brand); border: 1px solid var(--brand); }
+        .noscript-note { margin-top: 20px; font-size: 14px; color: #888; }
+    </style>
+</head>
+<body>
+
+    <noscript>
+        <div class="wrap">
+            <img src="images/logo.png" alt="Emina Pflegedienst" class="logo">
+            <h1>404</h1>
+            <h2>Seite nicht gefunden</h2>
+            <p>Die aufgerufene Seite existiert nicht. Bitte kehren Sie zur Startseite zurück.</p>
+            <div class="actions">
+                <a href="/" class="btn-primary">Zur Startseite</a>
+            </div>
+        </div>
+    </noscript>
+
+</body>
+</html>

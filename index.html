@@ -11,12 +11,39 @@
      <meta name="author" content="Emina Pflegedienst">
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+     <!-- Restore the real URL as early as possible if we were bounced here by 404.html -->
+     <script>
+       (function () {
+         try {
+           var redirectPath = sessionStorage.getItem('spa-redirect-path');
+           if (redirectPath) {
+             sessionStorage.removeItem('spa-redirect-path');
+             history.replaceState(null, '', redirectPath);
+           }
+         } catch (e) {
+           // sessionStorage / history API unavailable (sandboxed preview, blocked storage, etc.) — ignore
+         }
+       })();
+     </script>
+
+     <!-- Speed up the connection to third-party origins used further down the page -->
+     <link rel="preconnect" href="https://www.google.com">
+     <link rel="preconnect" href="https://formspree.io">
+     <link rel="preload" href="images/Logo-Horizontal-1.webp" as="image">
+
+         <!-- Layout-critical CSS: kept render-blocking on purpose (grid, hero slider, custom theme) -->
          <link rel="stylesheet" href="css/bootstrap.min.css">
-         <link rel="stylesheet" href="css/font-awesome.min.css">
-         <link rel="stylesheet" href="css/animate.css">
          <link rel="stylesheet" href="css/owl.carousel.css">
          <link rel="stylesheet" href="css/owl.theme.default.min.css">
          <link rel="stylesheet" href="css/tooplate-style.css">
+
+         <!-- Non-critical CSS (icons, scroll animations): loaded without blocking first paint -->
+         <link rel="preload" href="css/font-awesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+         <link rel="preload" href="css/animate.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+         <noscript>
+           <link rel="stylesheet" href="css/font-awesome.min.css">
+           <link rel="stylesheet" href="css/animate.css">
+         </noscript>
 </head>
 <!-- FLOATING APPOINTMENT BUTTON -->
 <a href="#appointment" class="floating-appointment">
@@ -36,7 +63,7 @@
     <section class="preloader">
         <div class="spinner">
             <span class="spinner-rotate"></span>
-            <img src="images/load.png" alt="Loading" class="loader-img">
+            <img src="images/load.png" alt="Loading" class="loader-img" loading="lazy" decoding="async">
         </div>
     </section>
 
@@ -148,7 +175,7 @@
 
           <!-- LOGO ADDED HERE -->
           <div class="about-logo wow fadeInUp" data-wow-delay="0.4s">
-            <img src="images/logo.png" alt="Emina Logo" class="img-responsive">
+            <img src="images/logo.png" alt="Emina Logo" class="img-responsive" loading="lazy" decoding="async">
           </div>
 
           <h2 class="wow fadeInUp" data-wow-delay="0.6s">
@@ -179,7 +206,7 @@
           </div>
 
           <figure class="profile wow fadeInUp" data-wow-delay="1s">
-            <img src="images/author-image.jpg" class="img-responsive" alt="">
+            <img src="images/author-image.jpg" class="img-responsive" alt="" loading="lazy" decoding="async">
             <figcaption>
               <h3>Pflege mit Herz und Respekt</h3>
               <p>Emina Pflegedienst</p>
@@ -204,7 +231,7 @@
         <div class="team-grid">
             
             <div class="team-box">
-                <img src="images/1.png" alt="Pflege mit Herz">
+                <img src="images/1.png" alt="Pflege mit Herz" loading="lazy" decoding="async">
                 <h4>❤️ Pflege mit Herz</h4>
                 <p>
                 Bei uns steht der Mensch im Mittelpunkt. Wir pflegen mit Empathie, Respekt und echter Hingabe – so, wie wir selbst gepflegt werden möchten.
@@ -212,7 +239,7 @@
             </div>
             
             <div class="team-box">
-                <img src="images/2.png" alt="Schnelle Hilfe">
+                <img src="images/2.png" alt="Schnelle Hilfe" loading="lazy" decoding="async">
                 <h4>⚡ Schnelle Hilfe</h4>
                 <p>
                 Keine langen Wartezeiten: Wir reagieren schnell und flexibel auf Ihre Bedürfnisse und sind zuverlässig für Sie da – genau dann, wenn Sie uns brauchen.
@@ -220,7 +247,7 @@
             </div>
             
             <div class="team-box">
-                <img src="images/3.png" alt="Qualifiziertes Team">
+                <img src="images/3.png" alt="Qualifiziertes Team" loading="lazy" decoding="async">
                 <h4>👩‍⚕️ Qualifiziertes Team</h4>
                 <p>
                 Unser erfahrenes Pflegepersonal verfügt über langjährige Berufserfahrung und arbeitet nach höchsten Qualitätsstandards.
@@ -228,7 +255,7 @@
             </div>
             
             <div class="team-box">
-                <img src="images/4.png" alt="Individuelle Betreuung">
+                <img src="images/4.png" alt="Individuelle Betreuung" loading="lazy" decoding="async">
                 <h4>🏡 Individuelle Betreuung</h4>
                 <p>
                 Jede Pflege ist einzigartig. Deshalb passen wir unsere Leistungen individuell an Ihre persönliche Situation an.
@@ -265,7 +292,7 @@
       <div class="col-md-4 col-sm-6">
         <div class="news-thumb service-card wow fadeInUp" data-wow-delay="0.4s">
             <div class="heart-icon">
-                    <img src="images/load.png" alt="heart">
+                    <img src="images/load.png" alt="heart" loading="lazy" decoding="async">
                 </div>
             <img src="images/s1.png" class="img-responsive" loading="lazy" decoding="async" alt="">
           <div class="news-info">
@@ -279,9 +306,9 @@
       <div class="col-md-4 col-sm-6">
         <div class="news-thumb service-card wow fadeInUp" data-wow-delay="0.6s">
             <div class="heart-icon">
-                    <img src="images/load.png" alt="heart">
+                    <img src="images/load.png" alt="heart" loading="lazy" decoding="async">
                 </div>
-          <img src="images/s2.png" class="img-responsive" alt="">
+          <img src="images/s2.png" class="img-responsive" alt="" loading="lazy" decoding="async">
           <div class="news-info">
             <span>Leistung</span>
             <h3 class="service-title">Behandlungspflege</h3>
@@ -293,9 +320,9 @@
       <div class="col-md-4 col-sm-6">
         <div class="news-thumb service-card wow fadeInUp" data-wow-delay="0.8s">
             <div class="heart-icon">
-                    <img src="images/load.png" alt="heart">
+                    <img src="images/load.png" alt="heart" loading="lazy" decoding="async">
                 </div>
-          <img src="images/s3.png" class="img-responsive" alt="">
+          <img src="images/s3.png" class="img-responsive" alt="" loading="lazy" decoding="async">
           <div class="news-info">
             <span>Leistung</span>
             <h3 class="service-title">Hauswirtschaftliche Versorgung</h3>
@@ -312,9 +339,9 @@
       <div class="col-md-4 col-sm-6">
         <div class="news-thumb service-card wow fadeInUp" data-wow-delay="1.0s">
             <div class="heart-icon">
-                    <img src="images/load.png" alt="heart">
+                    <img src="images/load.png" alt="heart" loading="lazy" decoding="async">
                 </div>
-          <img src="images/s4.png" class="img-responsive" alt="">
+          <img src="images/s4.png" class="img-responsive" alt="" loading="lazy" decoding="async">
           <div class="news-info">
             <span>Leistung</span>
             <h3 class="service-title">Betreuung & Alltagsbegleitung</h3>
@@ -326,9 +353,9 @@
       <div class="col-md-4 col-sm-6">
         <div class="news-thumb service-card wow fadeInUp" data-wow-delay="1.2s">
             <div class="heart-icon">
-                    <img src="images/load.png" alt="heart">
+                    <img src="images/load.png" alt="heart" loading="lazy" decoding="async">
                 </div>
-          <img src="images/s5.png" class="img-responsive" alt="">
+          <img src="images/s5.png" class="img-responsive" alt="" loading="lazy" decoding="async">
           <div class="news-info">
             <span>Leistung</span>
             <h3 class="service-title">Verhinderungspflege</h3>
@@ -340,9 +367,9 @@
       <div class="col-md-4 col-sm-6">
         <div class="news-thumb service-card wow fadeInUp" data-wow-delay="1.4s">
             <div class="heart-icon">
-                    <img src="images/load.png" alt="heart">
+                    <img src="images/load.png" alt="heart" loading="lazy" decoding="async">
                 </div>
-          <img src="images/s6.png" class="img-responsive" alt="">
+          <img src="images/s6.png" class="img-responsive" alt="" loading="lazy" decoding="async">
           <div class="news-info">
             <span>Leistung</span>
             <h3 class="service-title">Beratung nach §37 Abs.3 SGB XI</h3>
@@ -361,7 +388,7 @@
     <div class="row">
 
       <div class="col-md-6 col-sm-6">
-        <img src="images/appointment-image.jpg" class="img-responsive" alt="">
+        <img src="images/appointment-image.jpg" class="img-responsive" alt="" loading="lazy" decoding="async">
       </div>
 
       <div class="col-md-6 col-sm-6">
@@ -687,7 +714,7 @@
 
            <!-- LOGO -->
            <div class="col-md-2 col-sm-12 text-center">
-             <img src="images/logo.png" alt="Logo" class="footer-logo">
+             <img src="images/logo.png" alt="Logo" class="footer-logo" loading="lazy" decoding="async">
            </div>
 
          </div>
@@ -704,30 +731,102 @@
      <script>
      document.addEventListener("DOMContentLoaded", function () {
 
-       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+       // ---- Section <-> pretty URL map ----
+       var routes = [
+         { path: "/",           id: "top" },
+         { path: "/ueber-uns",  id: "about" },
+         { path: "/warum-wir",  id: "team" },
+         { path: "/leistungen", id: "news" },
+         { path: "/termin",     id: "appointment" },
+         { path: "/kontakt",    id: "google-map" }
+       ];
+
+       function pathForId(id) {
+         for (var i = 0; i < routes.length; i++) {
+           if (routes[i].id === id) return routes[i].path;
+         }
+         return "/";
+       }
+
+       function idForPath(path) {
+         var clean = path.replace(/\/+$/, "") || "/";
+         for (var i = 0; i < routes.length; i++) {
+           if (routes[i].path === clean) return routes[i].id;
+         }
+         return null;
+       }
+
+       function scrollToId(id, behavior) {
+         var target = document.getElementById(id);
+         if (!target) return;
+         var yOffset = -70; // adjust for navbar
+         var y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+         window.scrollTo({ top: y, behavior: behavior || "smooth" });
+       }
+
+       // ---- Click on any nav / footer / in-page anchor: smooth scroll + pretty URL ----
+       document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
 
          anchor.addEventListener("click", function (e) {
-           e.preventDefault();
-
-           const targetID = this.getAttribute("href");
+           var targetID = this.getAttribute("href");
 
            // ignore empty #
            if (targetID === "#") return;
 
-           const target = document.querySelector(targetID);
+           var target = document.querySelector(targetID);
+           if (!target) return;
 
-           if (target) {
-             const yOffset = -70; // adjust for navbar
-             const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+           e.preventDefault();
 
-             window.scrollTo({
-               top: y,
-               behavior: "smooth"
-             });
+           scrollToId(target.id, "smooth");
+
+           var newPath = pathForId(target.id);
+           if (location.pathname !== newPath) {
+             try { history.pushState({ id: target.id }, "", newPath); } catch (e) {}
            }
          });
 
        });
+
+       // ---- Direct load / refresh of a pretty URL (e.g. /leistungen): jump to that section ----
+       var initialId = idForPath(location.pathname);
+       if (initialId && initialId !== "top") {
+         // run after layout so the offset is measured correctly
+         window.requestAnimationFrame(function () {
+           scrollToId(initialId, "auto");
+         });
+       }
+
+       // ---- Browser back / forward buttons ----
+       window.addEventListener("popstate", function () {
+         scrollToId(idForPath(location.pathname) || "top", "smooth");
+       });
+
+       // ---- Scrollspy: keep the URL in sync while the user scrolls through sections ----
+       var sections = routes
+         .map(function (r) { return document.getElementById(r.id); })
+         .filter(Boolean);
+
+       var spyTimer = null;
+
+       if ("IntersectionObserver" in window) {
+         var observer = new IntersectionObserver(function (entries) {
+           entries.forEach(function (entry) {
+             if (!entry.isIntersecting) return;
+
+             clearTimeout(spyTimer);
+             spyTimer = setTimeout(function () {
+               var newPath = pathForId(entry.target.id);
+               if (location.pathname !== newPath) {
+                 // replaceState, not pushState: scrolling shouldn't spam browser history
+                 try { history.replaceState({ id: entry.target.id }, "", newPath); } catch (e) {}
+               }
+             }, 150);
+           });
+         }, { rootMargin: "-45% 0px -45% 0px", threshold: 0 });
+
+         sections.forEach(function (s) { observer.observe(s); });
+       }
 
      });
      </script>
